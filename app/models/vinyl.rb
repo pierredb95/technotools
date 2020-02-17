@@ -3,6 +3,9 @@ class Vinyl < ApplicationRecord
   belongs_to :artist
   belongs_to :genre
 
+  has_many :tracks, dependent: :destroy
   has_many :bookings
   has_many :reviews, through: :booking
+
+  validates :name, presence: true
 end

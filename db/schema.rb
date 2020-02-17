@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_145533) do
+ActiveRecord::Schema.define(version: 2020_02_17_151126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,14 @@ ActiveRecord::Schema.define(version: 2020_02_17_145533) do
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
+  create_table "tracks", force: :cascade do |t|
+    t.string "name"
+    t.bigint "vinyl_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["vinyl_id"], name: "index_tracks_on_vinyl_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -100,6 +108,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_145533) do
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "vinyls"
   add_foreign_key "reviews", "bookings"
+  add_foreign_key "tracks", "vinyls"
   add_foreign_key "vinyls", "artists"
   add_foreign_key "vinyls", "genres"
   add_foreign_key "vinyls", "users"
