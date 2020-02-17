@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_143722) do
+ActiveRecord::Schema.define(version: 2020_02_17_145533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,10 +38,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_143722) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
-    t.bigint "vinyl_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["vinyl_id"], name: "index_artists_on_vinyl_id"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -57,10 +55,8 @@ ActiveRecord::Schema.define(version: 2020_02_17_143722) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
-    t.bigint "vinyl_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["vinyl_id"], name: "index_genres_on_vinyl_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -70,14 +66,6 @@ ActiveRecord::Schema.define(version: 2020_02_17_143722) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
-  end
-
-  create_table "tracks", force: :cascade do |t|
-    t.string "name"
-    t.bigint "vinyl_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["vinyl_id"], name: "index_tracks_on_vinyl_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -96,17 +84,23 @@ ActiveRecord::Schema.define(version: 2020_02_17_143722) do
 
   create_table "vinyls", force: :cascade do |t|
     t.string "name"
-    t.date "relase_date"
+    t.date "release_date"
     t.float "price_per_day"
+    t.bigint "user_id"
+    t.bigint "artist_id"
+    t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_vinyls_on_artist_id"
+    t.index ["genre_id"], name: "index_vinyls_on_genre_id"
+    t.index ["user_id"], name: "index_vinyls_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "artists", "vinyls"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "vinyls"
-  add_foreign_key "genres", "vinyls"
   add_foreign_key "reviews", "bookings"
-  add_foreign_key "tracks", "vinyls"
+  add_foreign_key "vinyls", "artists"
+  add_foreign_key "vinyls", "genres"
+  add_foreign_key "vinyls", "users"
 end
