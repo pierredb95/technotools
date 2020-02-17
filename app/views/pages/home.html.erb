@@ -1,8 +1,33 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/1984987/screenshots/3965996/pantuneplaylist_vinyl_gif_800x600_.gif);">
-  <div class="container">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <%= link_to "#", class: "navbar-brand" do %>
+    <%= image_tag "https://cdn.shopify.com/s/files/1/1816/1199/products/MBTA_Logo_2.5_Circle_Magnet_WEB_grande.jpg" %>
+  <% end %>
 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <%= link_to "Home", "#", class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <%= image_tag "https://geo-static.traxsource.com/files/artists/10554.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <%= link_to "Action", "#", class: "dropdown-item" %>
+          <%= link_to "Another action", "#", class: "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.dribbble.com/users/1984987/screenshots/3965996/pantuneplaylist_vinyl_gif_800x600_.gif);">
+  <div class="banner-container">
     <h1>Techno Tools</h1>
     <p>“Let your heart beat for music.”</p>
-    <a class="btn btn-flat" href="#">Find a vinyl</a>
+    <a class="btn btn-light" id="btn-find" href="#">Find a vinyl</a>
   </div>
 </div>
