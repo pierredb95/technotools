@@ -5,7 +5,7 @@ class Vinyl < ApplicationRecord
 
   has_many :tracks, dependent: :destroy
   has_many :bookings
-  has_many :reviews, through: :booking
+  has_many :reviews, through: :bookings
 
   validates :name, presence: true
 end
