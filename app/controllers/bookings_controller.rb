@@ -28,7 +28,7 @@ class BookingsController < ApplicationController
   def destroy
   end
 
-  # ====================== SECURITY FOR PARAMS =====================
+  # SECURITY FOR PARAMS
   private
 
   def booking_params
