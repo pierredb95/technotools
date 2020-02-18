@@ -1,1 +1,22 @@
-<h1>SHOW VYNYL</h1>
+<% background_url = @vinyl.photo.key %>
+<%= cl_image_tag @vinyl.photo.key, alt: "alttext", :class => "background-vinyl-show" %>
+  <!-- <div style="background-image: url('<%= cl_image_path background_url %>');" class="background-vinyl-show"> -->
+  <!-- add @binyl.photo.key -->
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-12 col-md-8">
+      <div class="infos text-right p-3">
+        <h1><%= @vinyl.name %></h1>
+        <h2><%= @vinyl.artist.name %></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum distinctio laudantium laboriosam recusandae voluptates quia accusamus illo voluptatem optio, unde, omnis repellat excepturi facere suscipit voluptatum iure libero voluptas quis.</p>
+        <h3><%= @vinyl.user.email %></h3>
+        <h3>Reviews</h3>
+        <ul class="list-unstyled">
+          <% @vinyl.reviews.each do |review| %>
+            <li style="font-size: 16px;" class="m-4"><strong><%= review.booking.user.pseudo %></strong>:<br><%= '*' * review.rating.to_i %>  <%= review.comment %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
