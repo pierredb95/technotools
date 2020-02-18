@@ -1,19 +1,19 @@
 .background-vinyl-show {
-  border-radius: 50%;
-  height: 100vh;
-  width: 100vh;
+  border-radius:       50%;
+  height:              100vh;
+  width:               100vh;
   background-position: center ;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 1px solid white;
-  opacity: 0.5;
-  margin-left: -100px;
-  position: fixed;
+  background-repeat:   no-repeat;
+  background-size:     cover;
+  border:              1px solid white;
+  opacity:             0.5;
+  margin-left:         -100px;
+  position:            fixed;
 }
 
 .content {
   margin-left: 50%;
-  text-align: right;
+  text-align:  right;
 }
 
 .vinyl-show {
@@ -22,6 +22,50 @@
 
 .infos {
   color: white;
-  z-index: 2;
-  position: relative;
 }
+
+.container {
+  height: 100vh;
+}
+
+repeat[n="0"] {
+    display:block;
+}
+
+repeat[n="1"]:before {
+   content: "★";
+}
+
+repeat[n="2"]:before {
+   content: "★★";
+}
+
+repeat[n="3"]:before {
+   content: "★★★";
+}
+
+repeat[n="4"]:before {
+   content: "★★★★";
+}
+
+repeat[n="5"]:before {
+   content: "★★★★★";
+}
+
+.table {
+}
+
+.table-info {
+  background-color: transparent;
+  width: 75%;
+}
+
+.borderless th {
+    border: none;
+}
+
+.full-screen-show {
+  height: 100%;
+}
+
+
