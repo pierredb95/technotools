@@ -39,3 +39,6 @@ gem 'cloudinary', '~> 1.12.0'
 
 # Authentification Gem
 gem 'devise'
+
+# Faker Gem to generate seeds
+gem 'faker'
