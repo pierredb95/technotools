@@ -1,5 +1,27 @@
-.background {
+.background-vinyl-show {
   border-radius: 50%;
   height: 100vh;
   width: 100vh;
+  background-position: center ;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid white;
+  opacity: 0.5;
+  margin-left: -100px;
+  position: fixed;
+}
+
+.content {
+  margin-left: 50%;
+  text-align: right;
+}
+
+.vinyl-show {
+  background-color: rgb(20, 20, 20);
+}
+
+.infos {
+  color: white;
+  z-index: 2;
+  position: relative;
 }
