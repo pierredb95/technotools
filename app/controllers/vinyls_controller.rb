@@ -27,7 +27,7 @@ class VinylsController < ApplicationController
   def destroy
   end
 
-  # ====================== SECURITY FOR PARAMS =====================
+  # SECURITY FOR PARAMS
   private
 
   def vinyl_params
