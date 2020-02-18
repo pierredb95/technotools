@@ -8,5 +8,7 @@ class Vinyl < ApplicationRecord
   has_many :reviews, through: :bookings
   has_one_attached :photo
 
+  has_one_attached :photo
+
   validates :name, presence: true
 end
