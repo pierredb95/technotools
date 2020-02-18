@@ -9,7 +9,7 @@ class Booking < ApplicationRecord
 
   private
   def end_rent_after_start_rent
-    if :end_rent < :start_rent
+    if :end_rent >= :start_rent
       errors.add(:end_rent, "must be after the start date")
     end
   end
