@@ -1,1 +1,13 @@
-<h1>SHOW VYNYL</h1>
+<% background_url = @vinyl.photo.key %>
+<div style="background-image: url('<%= cl_image_path background_url %>');" class="background">
+<!-- add @binyl.photo.key -->
+  <div class="container">
+    <div class="row">
+      <div class="col justify-content-end">
+        <h1><%= @vinyl.name %></h1>
+        <h2><%= @vinyl.artist.name %></h2>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum distinctio laudantium laboriosam recusandae voluptates quia accusamus illo voluptatem optio, unde, omnis repellat excepturi facere suscipit voluptatum iure libero voluptas quis.
+      </div>
+    </div>
+  </div>
+</div>
