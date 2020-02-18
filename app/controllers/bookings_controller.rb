@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  skip_before_action :authenticate_user!
   # CREATE
   def new
     @booking = Booking.new
@@ -6,12 +7,10 @@ class BookingsController < ApplicationController
   end
 
   def create
-
     @booking = Booking.new(booking_params)
     @vinyl = Vinyl.find(params[:vinyl_id])
     @booking.vinyl = @vinyl
     @booking.user = current_user
-      raise
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -30,13 +29,23 @@ class BookingsController < ApplicationController
 
   # UPDATE
   def edit
+    @booking = Booking.find(params[:id])
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking)
+    else
+      render :edit
+    end
   end
 
   # DELETE
   def destroy
+    booking = Booking.find(params[:id])
+    booking.destroy
+    redirect_to bookings_path
   end
 
   # SECURITY FOR PARAMS
