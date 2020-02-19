@@ -6,6 +6,7 @@ class VinylsController < ApplicationController
     @vinyl = Vinyl.new
     @artists = Artist.all
     @genres = Genre.all
+    authorize @vinyl
   end
 
   def create
@@ -20,7 +21,8 @@ class VinylsController < ApplicationController
 
   # READ
   def index
-    @vinyls = Vinyl.geocoded
+    @vinyls = policy_scope(Vinyl)
+    # @vinyls = Vinyl.geocoded
     @markers = @vinyls.map do |vinyl|
       {
         lat: vinyl.latitude,
@@ -31,11 +33,13 @@ class VinylsController < ApplicationController
 
   def show
     @vinyl = Vinyl.find(params[:id])
+    authorize @vinyl
   end
 
   # UPDATE
   def edit
     @vinyl = Vinyl.find(params[:id])
+    authorize @vinyl
   end
 
   def update
@@ -49,8 +53,9 @@ class VinylsController < ApplicationController
 
   # DELETE
   def destroy
-    vinyl = Vinyl.find(params[:id])
-    vinyl.destroy
+    authorize @vinyl
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.destroy
     redirect_to vinyls_path
   end
 
