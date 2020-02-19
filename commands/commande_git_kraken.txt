@@ -1,0 +1,1 @@
+git log --graph --decorate --pretty=oneline --abbrev-commit --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
