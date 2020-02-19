@@ -13,16 +13,13 @@
   <div class="card-product">
     <img src="https://www.pngkey.com/png/full/16-166207_vector-record-yellow-vinyl-vector-transparent-download-lp.png" >
       <div class="card-info">
-        <h5><%= link_to @vinyls.name, vinyl_path(vinyl) %></h5>
-        <h6><%= @vinyls.user.name %></h6>
-        <p><%= @vinyls.genre %> | <%= @vinyls.release_date %> | <%= @vinyls.address %></p>
+        <h5><%= link_to vinyl.name, vinyl_path(vinyl) %></h5>
+        <h6><%= vinyl.user.pseudo %></h6>
+        <p><%= vinyl.genre.name %> | <%= vinyl.release_date %> | <%= vinyl.address %></p>
         <br>
-        <p> <%= @vinyls.price %> €</p>
+        <p> <%= vinyl.price_per_day %> €</p>
         <% if policy(vinyl).edit? %>
           <%= link_to 'Edit', edit_vinyl_path(vinyl) %>
-        <% end %>
-        <% if policy(vinyl).destroy? %>
-          <%= link_to 'Destroy', data: {confirm: "Are you sure?"}, vinyl_path(vinyl) method: :delete %>
         <% end %>
       </div>
     </div>
