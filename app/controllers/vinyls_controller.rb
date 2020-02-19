@@ -6,6 +6,7 @@ class VinylsController < ApplicationController
     @vinyl = Vinyl.new
     @artists = Artist.all
     @genres = Genre.all
+    authorize @vinyl
   end
 
   def create
@@ -21,29 +22,32 @@ class VinylsController < ApplicationController
   # READ
 
   def index
+    @vinyls = policy_scope(Vinyl)
     if params[:query].present?
-      sql_query = " \
-        users.address ILIKE :query \
-      "
-      @vinyls = Vinyl.joins(:users).where(sql_query, query: "%#{params[:query]}%")
-    else
-      @vinyls = Vinyl.all
+        sql_query = " \
+          users.address ILIKE :query \
+        "
+        @vinyls.joins(:users).where(sql_query, query: "%#{params[:query]}%").geocoded
+      else
+        @vinyls.all.geocoded
+      end
+    @markers = @vinyls.map do |vinyl|
+      {
+        lat: vinyl.latitude,
+        lng: vinyl.longitude
+      }
     end
-    # @markers = @vinyls.map do |vinyl|
-    #   {
-    #     lat: vinyl.latitude,
-    #     lng: vinyl.longitude
-    #   }
-    # end
   end
 
   def show
     @vinyl = Vinyl.find(params[:id])
+    authorize @vinyl
   end
 
   # UPDATE
   def edit
     @vinyl = Vinyl.find(params[:id])
+    authorize @vinyl
   end
 
   def update
@@ -57,8 +61,9 @@ class VinylsController < ApplicationController
 
   # DELETE
   def destroy
-    vinyl = Vinyl.find(params[:id])
-    vinyl.destroy
+    authorize @vinyl
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.destroy
     redirect_to vinyls_path
   end
 
