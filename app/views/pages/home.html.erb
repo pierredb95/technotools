@@ -2,36 +2,14 @@
   <div class="banner-container">
     <h1>TECHNO TOOLS</h1>
     <p>“Let your heart beat for music.”</p>
-    <a class="btn btn-light" id="btn-find" href="#">Find a vinyl</a>
+    <%= render "shared/search-bar"  %>
   </div>
 </div>
 <%= render "shared/navbar" %>
 
 <div class="container">
-
   <h2>Break the music barrier</h2>
   <h4>Lend and share your records with the vinyl enthusiasts around you!</h4>
-
-  <form class="form-inline needs-validation" novalidate>
-    <label class="sr-only" for="inline-email">Email</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inline-email" placeholder="Where?" required>
-    <div class="invalid-feedback">Name can't be blank</div>
-    <div class="valid-feedback">Looks good!</div>
-
-    <label class="sr-only" for="inline-email">Email</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inline-email" placeholder="From?" required>
-    <div class="invalid-feedback">Name can't be blank</div>
-    <div class="valid-feedback">Looks good!</div>
-
-    <label class="sr-only" for="inline-email">Email</label>
-    <input type="text" class="form-control mb-2 mr-sm-2" id="inline-email" placeholder="To?" required>
-    <div class="invalid-feedback">Name can't be blank</div>
-    <div class="valid-feedback">Looks good!</div>
-
-    <button type="submit" class="btn btn-primary mb-2 mr-sm-2">Find a vinyl</button>
-  </form>
   <%= render "shared/record-image" %>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae minima aut velit quia nisi, non, pariatur vel totam magni recusandae, veniam neque facilis tenetur assumenda facere obcaecati veritatis similique laudantium. </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae minima aut velit quia nisi, non, pariatur vel totam magni recusandae, veniam neque facilis tenetur assumenda facere obcaecati veritatis similique laudantium. </p>
-
+  </div>
 </div>
