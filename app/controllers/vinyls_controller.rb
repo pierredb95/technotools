@@ -22,6 +22,13 @@ class VinylsController < ApplicationController
   # READ
   def index
     @vinyls = policy_scope(Vinyl)
+    # @vinyls = Vinyl.geocoded
+    @markers = @vinyls.map do |vinyl|
+      {
+        lat: vinyl.latitude,
+        lng: vinyl.longitude
+      }
+    end
   end
 
   def show

@@ -1,5 +1,8 @@
 class VinylPolicy < ApplicationPolicy
   class Scope < Scope
+    def resolve
+      scope.geocoded
+    end
   end
 
   def new?
