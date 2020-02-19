@@ -9,7 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body style="margin: 0px">
+  <% background_color = (params[:action] == "home" ? 'background-white' : 'background-gray') %>
+  <body class="<%= background_color %>">
     <%= render 'shared/flashes' %>
     <%= yield %>
     <% unless params[:controller] == "vinyls" && params[:action] == "show" %>
