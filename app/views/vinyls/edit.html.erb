@@ -1,1 +1,13 @@
-<h1>EDIT</h1>
+<div class='container'>
+  <h1>Edit <%= @vinyl.name %></h1>
+  <%= simple_form_for @vinyl do |f| %>
+    <%= f.input :name %>
+    <%= f.input :release_date, as: :date %>
+    <%= f.input :price_per_day, as: :integer %>
+    <%= f.association :genre %>
+    <%= f.association :artist %>
+    <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
