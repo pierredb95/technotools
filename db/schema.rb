@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_105032) do
+ActiveRecord::Schema.define(version: 2020_02_19_102341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_02_18_105032) do
     t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
     t.index ["artist_id"], name: "index_vinyls_on_artist_id"
     t.index ["genre_id"], name: "index_vinyls_on_genre_id"
     t.index ["user_id"], name: "index_vinyls_on_user_id"
