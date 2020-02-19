@@ -12,6 +12,7 @@ class VinylsController < ApplicationController
   def create
     @vinyl = Vinyl.new(vinyl_params)
     @vinyl.user = current_user
+    authorize @vinyl
     if @vinyl.save
       redirect_to vinyl_path(@vinyl)
     else
@@ -52,6 +53,7 @@ class VinylsController < ApplicationController
 
   def update
     @vinyl = Vinyl.find(params[:id])
+    authorize @vinyl
     if @vinyl.update(vinyl_params)
       redirect_to vinyl_path(@vinyl)
     else
@@ -61,8 +63,8 @@ class VinylsController < ApplicationController
 
   # DELETE
   def destroy
-    authorize @vinyl
     @vinyl = Vinyl.find(params[:id])
+    authorize @vinyl
     @vinyl.destroy
     redirect_to vinyls_path
   end
