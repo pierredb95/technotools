@@ -25,7 +25,7 @@
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
 }
 
 repeat[n="0"] {
@@ -53,6 +53,7 @@ repeat[n="5"]:before {
 }
 
 .table-info {
+  width: 500px;
   background-color: transparent;
   width: 50%;
 }
@@ -61,20 +62,46 @@ repeat[n="5"]:before {
     border: none;
 }
 
-.full-screen-show {
-  height: 100%;
-}
-
 .youtube-player {
   width: 500px;
   height: 300px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
+
+.links {
+  width: 500px;
+}
+
+.booking-btn {
+  width: 500px
+}
+
+
+@media (max-width: 1000px) {
+  .table-info {
+    width: 500px;
+  }
+}
 
 @media (max-width: 550px) {
   /* For a screen < 550px, this CSS will be read */
   .youtube-player {
     width: 100%;
   }
+
+  .table-info {
+    width: 100%;
+  }
+
+  .links {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .booking-btn {
+    width: 100%;
+  }
+
 }

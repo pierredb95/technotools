@@ -3,13 +3,12 @@
   <!-- <div style="background-image: url('<%= cl_image_path background_url %>');" class="background-vinyl-show"> -->
   <!-- add @binyl.photo.key -->
 <%= render "shared/navbar" %>
-<div class="container full-screen-show infos text-right">
+<div class="container infos text-right pb-3">
   <div class="row">
-    <div class="col-12">
-      <div class="p-3">
-        <h1><%= @vinyl.name %></h1>
-        <h2><%= @vinyl.artist.name %></h2>
-        <table class="table table-dark table-info borderless text-right float-right" style="background-color: transparent; width: 500;">
+    <div class="col-12 mt-1">
+      <h1><%= @vinyl.name %></h1>
+      <h2><%= @vinyl.artist.name %></h2>
+      <table class="table table-dark table-info borderless float-right" style="background-color: transparent">
           <tr>
             <th scope="col">Release Date</th>
             <th scope="col">Genre</th>
@@ -20,22 +19,29 @@
             <td><%= @vinyl.genre.name %></td>
             <td>$<%= @vinyl.price_per_day %></td>
           </tr>
-        </table>
-      </div>
+      </table>
     </div>
     <div class="col-12">
-      <div class="youtube-player float-right justify-content-end">
+      <a href="#" class="btn btn-light booking-btn">Book</a>
+    </div>
+    <div class="col-12">
+      <div class="youtube-player float-right">
         <iframe display="block" title="YouTube Player" width="100%" height="100%" src="http://www.youtube.com/embed?listType=playlist&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD" frameborder="0" class="mt-2 mb-2"></iframe>
       </div>
     </div>
     <div class="col-12">
-      <h3><%= @vinyl.user.email %></h3>
-      <div class="reviews">
-        <h3>Last Reviews</h3>
-        <div class="review">
-          <p><strong><%= @vinyl.reviews.last.booking.user.pseudo %></strong></p>
-          <p><repeat n='<%= @vinyl.reviews.last.rating %>'></repeat>  <%= @vinyl.reviews.last.comment %> </p>
+      <div class="links d-flex float-right justify-content-between mt-2">
+        <div class="owner d-flex flex-column justify-content-between">
+          <h4><%= @vinyl.user.email %></h4>
+          <p><%= @vinyl.user.address %></p>
+          <a href="#" class="btn btn-light">See User</a>
         </div>
+        <div class="review">
+          <h4>Last Reviews</h4>
+          <div class="review">
+            <p><strong><%= @vinyl.reviews.last.booking.user.pseudo %></strong>: <repeat n='<%= @vinyl.reviews.last.rating %>'></repeat>  <%= @vinyl.reviews.last.comment %> </p>
+            <a href="#" class="btn btn-light">See all Reviews</a>
+          </div>
         </div>
       </div>
     </div>
