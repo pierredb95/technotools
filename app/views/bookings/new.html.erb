@@ -1,4 +1,7 @@
 <h1>NEW BOOKING</h1>
 
-<%= simple_form_for @vinyl %>
+<%= simple_form_for [@vinyl, @booking] do |f| %>
+  <%= f.input :start_rent, as: :date %>
+  <%= f.input :end_rent, as: :date %>
+  <%= f.submit class: 'btn btn-primary' %>
 <% end %>
