@@ -3,34 +3,39 @@
   <!-- <div style="background-image: url('<%= cl_image_path background_url %>');" class="background-vinyl-show"> -->
   <!-- add @binyl.photo.key -->
 <%= render "shared/navbar" %>
-<div class="container full-screen-show">
-  <div class="row justify-content-end">
-    <div class="col-12 col-md-8">
-      <div class="infos text-right p-3">
+<div class="container full-screen-show infos text-right">
+  <div class="row">
+    <div class="col-12">
+      <div class="p-3">
         <h1><%= @vinyl.name %></h1>
         <h2><%= @vinyl.artist.name %></h2>
-        <div class="table-info float-right mt-1 mb-1">
-          <table class="table table-dark borderless text-right" style="background-color: transparent; width: 500;">
-            <tr>
-              <th scope="col">Release Date</th>
-              <th scope="col">Genre</th>
-              <th scope="col">Price per Day</th>
-            </tr>
-            <tr>
-              <td><%= @vinyl.release_date.strftime("%m/%d/%Y") %></td>
-              <td><%= @vinyl.genre.name %></td>
-              <td>$<%= @vinyl.price_per_day %></td>
-            </tr>
-          </table>
+        <table class="table table-dark table-info borderless text-right float-right" style="background-color: transparent; width: 500;">
+          <tr>
+            <th scope="col">Release Date</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Price per Day</th>
+          </tr>
+          <tr>
+            <td><%= @vinyl.release_date.strftime("%m/%d/%Y") %></td>
+            <td><%= @vinyl.genre.name %></td>
+            <td>$<%= @vinyl.price_per_day %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="youtube-player float-right justify-content-end">
+        <iframe display="block" title="YouTube Player" width="100%" height="100%" src="http://www.youtube.com/embed?listType=playlist&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD" frameborder="0" class="mt-2 mb-2"></iframe>
+      </div>
+    </div>
+    <div class="col-12">
+      <h3><%= @vinyl.user.email %></h3>
+      <div class="reviews">
+        <h3>Last Reviews</h3>
+        <div class="review">
+          <p><strong><%= @vinyl.reviews.last.booking.user.pseudo %></strong></p>
+          <p><repeat n='<%= @vinyl.reviews.last.rating %>'></repeat>  <%= @vinyl.reviews.last.comment %> </p>
         </div>
-        <iframe title="YouTube Player" width="75%" height="300px" src="http://www.youtube.com/embed?listType=playlist&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD" frameborder="0" class="mt-2 mb-2"></iframe>
-        <h3><%= @vinyl.user.email %></h3>
-        <div class="reviews">
-          <h3>Last Reviews</h3>
-          <div class="review">
-            <p><strong><%= @vinyl.reviews.last.booking.user.pseudo %></strong></p>
-            <p><repeat n='<%= @vinyl.reviews.last.rating %>'></repeat>  <%= @vinyl.reviews.last.comment %> </p>
-          </div>
         </div>
       </div>
     </div>

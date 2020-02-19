@@ -52,12 +52,9 @@ repeat[n="5"]:before {
    content: "★★★★★";
 }
 
-.table {
-}
-
 .table-info {
   background-color: transparent;
-  width: 75%;
+  width: 50%;
 }
 
 .borderless th {
@@ -68,4 +65,16 @@ repeat[n="5"]:before {
   height: 100%;
 }
 
+.youtube-player {
+  width: 500px;
+  height: 300px;
+  margin-bottom: 20px;
+}
 
+
+@media (max-width: 550px) {
+  /* For a screen < 550px, this CSS will be read */
+  .youtube-player {
+    width: 100%;
+  }
+}
