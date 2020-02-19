@@ -44,3 +44,4 @@ gem 'devise'
 
 # Geocoding Gem
 gem 'geocoder'
+

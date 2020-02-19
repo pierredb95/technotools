@@ -25,17 +25,17 @@ class VinylsController < ApplicationController
   def index
     @vinyls = policy_scope(Vinyl)
     if params[:query].present?
-        sql_query = " \
-          users.address ILIKE :query \
-        "
-        @vinyls.joins(:users).where(sql_query, query: "%#{params[:query]}%").geocoded
-      else
-        @vinyls.all.geocoded
-      end
+      @vinyls = Vinyl.where(address: params[:query])
+    else
+      @vinyls
+    end
     @markers = @vinyls.map do |vinyl|
       {
         lat: vinyl.latitude,
-        lng: vinyl.longitude
+        lng: vinyl.longitude,
+        image_url: helpers.asset_url('vinyl.png')
+
+
       }
     end
   end
