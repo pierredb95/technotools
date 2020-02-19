@@ -6,7 +6,6 @@ class Vinyl < ApplicationRecord
   has_many :tracks, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
-  has_one_attached :photo
 
   has_one_attached :photo
 
