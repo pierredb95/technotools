@@ -1,28 +1,17 @@
-<div class="container search mt-5">
+<!-- <div class="container search mt-5">
   <form action="/vinyls" method="get" class="d-flex justify-content-between  align-items-center">
     <input  type="text"   class="border-dark shadow-lg rounded-pill p-4" placeholder="Where?">
     <input  type="text"   class="border-dark shadow-lg rounded-pill p-4" placeholder="From?">
     <input  type="text"   class="border-dark shadow-lg rounded-pill p-4" placeholder="To?">
     <button type="submit" class="border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4"> Find a Vinyl</button>
   </form>
-</div>
-
+</div> -->
 
 <%= form_tag vinyls_path, method: :get do %>
   <%= text_field_tag :query,
     params[:query],
     class: "border-dark shadow-lg rounded-pill p-4",
     placeholder: "Where?"
-  %>
-  <%= text_field_tag :start_date,
-    params[:start_date],
-    class: "border-dark shadow-lg rounded-pill p-4",
-    placeholder: "From"
-  %>
-   <%= text_field_tag :end_date,
-    params[:end_date],
-    class: "border-dark shadow-lg rounded-pill p-4",
-    placeholder: "To?"
   %>
   <%= submit_tag "Search", class: "border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4" %>
 <% end %>

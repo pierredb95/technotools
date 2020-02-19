@@ -20,9 +20,17 @@ class VinylsController < ApplicationController
   end
 
   # READ
+
   def index
     @vinyls = policy_scope(Vinyl)
-    # @vinyls = Vinyl.geocoded
+    if params[:query].present?
+        sql_query = " \
+          users.address ILIKE :query \
+        "
+        @vinyls.joins(:users).where(sql_query, query: "%#{params[:query]}%").geocoded
+      else
+        @vinyls.all.geocoded
+      end
     @markers = @vinyls.map do |vinyl|
       {
         lat: vinyl.latitude,
