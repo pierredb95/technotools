@@ -8,20 +8,20 @@
 
 
 #Cleaning the database
-User.destroy_all
-Artist.destroy_all
-Genre.destroy_all
 Vinyl.destroy_all
-Track.destroy_all
+User.destroy_all
+Genre.destroy_all
+Artist.destroy_all
 Booking.destroy_all
 Review.destroy_all
+Track.destroy_all
 
 #Generating 4 fake users
 puts 'Creating Users'
-marco = User.create(pseudo:'MarcoFullStack', address:'19 rue Nationale, 59800 Lille', email:'marc.combarel@edhec.com', password:'hsleovbfkm')
-User.create(pseudo:'Dourtealacreme', address:'53 rue de la Barre, 59800 Lille', email:'augustin.dortu@edhec.com', password:'qmfnekgw')
-User.create(pseudo:'Pedro', address:'24 rue de Londres, 75000 Paris', email:'pierre.debilbao@edhec.com', password:'klsbcopjgs')
-djbaz = User.create(pseudo:'DJBaz', address:'89 rue de Lille, 77300 Melun', email:'basile.masson@edhec.com', password:'mplnkabdvt')
+marco = User.create(pseudo:'MarcoFullStack', address:'19 rue Nationale, 59800 Lille', email:'marc.combarel@edhec.com', password:'azerty')
+User.create(pseudo:'Dourtealacreme', address:'53 rue de la Barre, 59800 Lille', email:'augustin.dortu@edhec.com', password:'azerty')
+User.create(pseudo:'Pedro', address:'24 rue de Londres, 75000 Paris', email:'pierre.debilbao@edhec.com', password:'azerty')
+djbaz = User.create(pseudo:'DJBaz', address:'89 rue de Lille, 77300 Melun', email:'basile.masson@edhec.com', password:'azerty')
 
 
 #Generating all Artists
@@ -65,27 +65,37 @@ Genre.create(name:'Musique Latino')
 
 #Generating all Vinyls
 puts 'Creating Vinyls'
-vinyl1 = Vinyl.create(name:'Tutu', release_date: '1986', price_per_day: 3, user: marco, artist: miles, genre: jazz)
-vinyl2 = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop)
+AbbeyRoad = Vinyl.create(name:'AbbeyRoad', release_date: '1986', price_per_day: 3, user: marco, artist: miles, genre: jazz, address: 'lille')
+Bad = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '146 rue nationale lille')
+Good = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '52 rue de la clef lille')
+Toto = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '119 rue nationale lille')
+Tutu = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: 'République lille')
+Tata = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: 'rue bartholome masurel lille ')
+Touraine = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '06 rue nationale lille')
+Mike = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: 'quai du wault lille')
+
+
+
+
 
 #Generating all Tracks
 puts 'Creating Tracks'
-Track.create(name: 'Tutu', vinyl: vinyl1)
-Track.create(name: 'Tomaas', vinyl: vinyl1)
-Track.create(name: 'Portia', vinyl: vinyl1)
-Track.create(name: 'Splatch', vinyl: vinyl1)
-Track.create(name: 'Backyard Ritual', vinyl: vinyl1)
-Track.create(name: 'Perfect Way', vinyl: vinyl1)
+Track.create(name: 'Tutu', vinyl: AbbeyRoad)
+Track.create(name: 'Tomaas', vinyl: AbbeyRoad)
+Track.create(name: 'Portia', vinyl: AbbeyRoad)
+Track.create(name: 'Splatch', vinyl: AbbeyRoad)
+Track.create(name: 'Backyard Ritual', vinyl: AbbeyRoad)
+Track.create(name: 'Perfect Way', vinyl: AbbeyRoad)
 
-Track.create(name: 'Bad', vinyl: vinyl2)
-Track.create(name: 'The Way You Make Me Feel', vinyl: vinyl2)
-Track.create(name: 'Speed Demon', vinyl: vinyl2)
-Track.create(name: 'Smooth Criminal', vinyl: vinyl2)
-Track.create(name: 'Leave Me Alone', vinyl: vinyl2)
+Track.create(name: 'Bad', vinyl: Bad)
+Track.create(name: 'The Way You Make Me Feel', vinyl: Bad)
+Track.create(name: 'Speed Demon', vinyl: Bad)
+Track.create(name: 'Smooth Criminal', vinyl: Bad)
+Track.create(name: 'Leave Me Alone', vinyl: Bad)
 
 #Generating all Bookings
 puts 'Creating Bookings'
-first_booking = Booking.create(start_rent: Time.now - 20, end_rent: Time.now, vinyl:vinyl1, user: marco)
+first_booking = Booking.create(start_rent: Time.now - 20, end_rent: Time.now, vinyl:AbbeyRoad, user: marco)
 
 #Generating all Reviews
 puts 'Creating Reviews'
