@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @vinyl = Vinyl.find(params[:vinyl_id])
+    authorize @booking
   end
 
   def create
@@ -20,16 +21,18 @@ class BookingsController < ApplicationController
 
   # READ
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Vinyl)
   end
 
   def show
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   # UPDATE
   def edit
     @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
@@ -43,8 +46,9 @@ class BookingsController < ApplicationController
 
   # DELETE
   def destroy
-    booking = Booking.find(params[:id])
-    booking.destroy
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    @booking.destroy
     redirect_to bookings_path
   end
 

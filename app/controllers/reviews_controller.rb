@@ -4,12 +4,18 @@ class ReviewsController < ApplicationController
   def new
     @review  = Review.new
     @booking = Booking.find(params[:booking_id])
+    @review.booking = @booking
+
+    authorize @booking
+    authorize @review
   end
 
   def create
     @review  = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
+
+    authorize @review
     if @review.save
       redirect_to vinyl_path(@booking.vinyl)
     else
@@ -21,11 +27,13 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review = Review.find(params[:id])
     @review.booking = @booking
+    authorize @review
   end
 
   def update
-    @booking = Booking.find(params[:booking_id])
     @review = Review.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
+    authorize @review
     if @review.update(review_params)
       redirect_to vinyl_path(@booking.vinyl)
     else
@@ -35,8 +43,9 @@ class ReviewsController < ApplicationController
 
   # DELETE
   def destroy
-    review = Review.find(params[:id])
-    review.destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    authorize @review
     # double check, ca depend de si on delete depuis la show redirect_to vinyl_path(@booking.vinyl)
   end
 

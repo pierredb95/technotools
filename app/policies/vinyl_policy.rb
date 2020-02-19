@@ -9,6 +9,10 @@ class VinylPolicy < ApplicationPolicy
     user
   end
 
+  def create?
+    user
+  end
+
   def index?
     return true
   end
