@@ -41,3 +41,6 @@ gem 'cloudinary', '~> 1.12.0'
 
 # Authentification Gem
 gem 'devise'
+
+# Geocoding Gem
+gem 'geocoder'
