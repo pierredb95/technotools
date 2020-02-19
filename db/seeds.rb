@@ -16,13 +16,12 @@ Track.destroy_all
 Booking.destroy_all
 Review.destroy_all
 
-
 #Generating 4 fake users
 puts 'Creating Users'
-marco = User.create(pseudo:'MarcoFullStack', address:'19 rue Nationale, 59800 Lille', email:'marc.combarel@edhec.com', encrypted_password:'hsleovbfkm')
-User.create(pseudo:'Dourtealacreme', address:'53 rue de la Barre, 59800 Lille', email:'augustin.dortu@edhec.com', encrypted_password:'qmfnekgw')
-User.create(pseudo:'Pedro', address:'24 rue de Londres, 75000 Paris', email:'pierre.debilbao@edhec.com', encrypted_password:'klsbcopjgs')
-djbaz = User.create(pseudo:'DJBaz', address:'89 rue de Lille, 77300 Melun', email:'basile.masson@edhec.com', encrypted_password:'mplnkabdvt')
+marco = User.create(pseudo:'MarcoFullStack', address:'19 rue Nationale, 59800 Lille', email:'marc.combarel@edhec.com', password:'hsleovbfkm')
+User.create(pseudo:'Dourtealacreme', address:'53 rue de la Barre, 59800 Lille', email:'augustin.dortu@edhec.com', password:'qmfnekgw')
+User.create(pseudo:'Pedro', address:'24 rue de Londres, 75000 Paris', email:'pierre.debilbao@edhec.com', password:'klsbcopjgs')
+djbaz = User.create(pseudo:'DJBaz', address:'89 rue de Lille, 77300 Melun', email:'basile.masson@edhec.com', password:'mplnkabdvt')
 
 
 #Generating all Artists
