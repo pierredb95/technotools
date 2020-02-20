@@ -4,10 +4,11 @@
   </div>
   <div class="content-index">
     <div class="cards-index">
-        <% @vinyls.each do |vinyl| %>
-          <%= render "shared/record_image", vinyl: vinyl %>
+      <% @vinyls.each do |vinyl| %>
+        <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
+          <%= render "shared/record_image", vinyl: vinyl%>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

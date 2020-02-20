@@ -11,9 +11,15 @@
   <h2>Break the music barrier</h2>
   <h4>Lend and share your records with the vinyl enthusiasts around you!</h4>
   <div class="d-flex mb-5 justify-content-around">
-    <%= render "shared/record_image", vinyl: Vinyl.first %>
-    <%= render "shared/record_image", vinyl: Vinyl.second %>
-    <%= render "shared/record_image", vinyl: Vinyl.third %>
+    <%= link_to vinyl_path(Vinyl.first), class: "link-without-style" do  %>
+      <%= render "shared/record_image", vinyl: Vinyl.first %>
+    <% end %>
+    <%= link_to vinyl_path(Vinyl.second), class: "link-without-style" do  %>
+      <%= render "shared/record_image", vinyl: Vinyl.second %>
+    <% end %>
+    <%= link_to vinyl_path(Vinyl.third), class: "link-without-style" do  %>
+      <%= render "shared/record_image", vinyl: Vinyl.third %>
+    <% end %>
   </div>
 </div>
 
