@@ -2,11 +2,12 @@
 <%= cl_image_tag @vinyl.photo.key, alt: "alttext", class: "background-vinyl-show" %>
   <!-- <div style="background-image: url('<%= cl_image_path background_url %>');" class="background-vinyl-show"> -->
   <!-- add @binyl.photo.key -->
+<div class="full_screen_background">
 <div class="container infos text-right pb-3">
   <div class="row">
     <div class="col-12 mt-1">
       <h1><%= @vinyl.name %></h1>
-      <h2><%= @vinyl.artist.name %></h2>
+      <h1><%= @vinyl.artist.name %></h1>
       <table class="table table-dark table-info borderless float-right" style="background-color: transparent">
           <tr>
             <th scope="col">Release Date</th>
@@ -19,6 +20,13 @@
             <td>$<%= @vinyl.price_per_day %></td>
           </tr>
       </table>
+    </div>
+    <div class="col-12">
+      <% @vinyl.tracks.each do |track| %>
+        <ul class="list-unstyled">
+          <li><%= track.name %></li>
+        </ul>
+      <% end %>
     </div>
     <div class="col-12">
       <button class="btn btn-light booking-btn"
@@ -53,4 +61,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
