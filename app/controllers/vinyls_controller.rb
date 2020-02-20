@@ -5,6 +5,7 @@ class VinylsController < ApplicationController
   def new
     @vinyl = Vinyl.new
     @artist = Artist.new
+    @review = Review.new
     authorize @vinyl
   end
 
@@ -63,6 +64,7 @@ class VinylsController < ApplicationController
 
   def show
     @vinyl = Vinyl.find(params[:id])
+    @review = Review.new
     authorize @vinyl
     @booking = Booking.new
     @bookings       = Booking.where(vinyl_id: @vinyl.id)

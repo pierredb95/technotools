@@ -29,7 +29,7 @@
               id="booking-form-div"
               data-bookings="<%= @bookings_dates.to_json %>">
         Book</button>
-      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking %>
+      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking  %>
     </div>
   </div>
   <div class="row m-1 mt-5 mb-4">
@@ -68,7 +68,7 @@
         <h4>Last Review</h4>
         <div class="review">
           <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
-          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">See all Reviews</button>
+          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">Post & Read Reviews </button>
           <%= render 'shared/modal_reviews' %>
           <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Leave a review</button> -->
         </div>
