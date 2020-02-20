@@ -8,3 +8,4 @@ initMapbox();
 
 
 import "../plugins/flatpickr"
+

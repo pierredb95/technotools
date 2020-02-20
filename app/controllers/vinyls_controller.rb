@@ -34,9 +34,8 @@ class VinylsController < ApplicationController
       {
         lat: vinyl.latitude,
         lng: vinyl.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { vinyl: vinyl }),
         image_url: helpers.asset_url('vinyl.png')
-
-
       }
     end
   end
