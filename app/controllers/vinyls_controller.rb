@@ -24,8 +24,15 @@ class VinylsController < ApplicationController
   # READ
 
   def index
+    puts "   "
+    p params[:query]
+    puts "   "
+    p params[:search]
+    puts "   "
+    p params[:search][:query]
+    puts "   "
     @vinyls = policy_scope(Vinyl)
-    if params[:query].present?
+    if params[:search][:query].present?
       sql_query = " \
             vinyls.address ILIKE :query \
             OR genres.name ILIKE :query \
@@ -34,7 +41,7 @@ class VinylsController < ApplicationController
 
 
           "
-      @vinyls = Vinyl.joins(:genre).joins(:artist).joins(:user).where(sql_query, query: "%#{params[:query]}%")
+      @vinyls = Vinyl.joins(:genre).joins(:artist).joins(:user).where(sql_query, query: "%#{params[:search][:query]}%")
     else
       @vinyls = Vinyl.all
     end
