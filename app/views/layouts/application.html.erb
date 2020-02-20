@@ -13,8 +13,12 @@
   <% background_color = (params[:action] == "home" || (params[:controller] == "vinyls" && params[:action] == "index")  ? 'background-white' : 'background-gray') %>
   <body class="<%= background_color %>">
     <%= render "shared/navbar" %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
+
+    <div class="global-container">
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+
     <% unless params[:controller] == "vinyls" && params[:action] == "show" %>
       <%= render "shared/footer" %>
     <% end %>
