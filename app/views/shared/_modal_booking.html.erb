@@ -10,7 +10,7 @@
       <div class="modal-body">
         <div class="container">
           <div class="form-wrapper" id="booking-modal-form">
-            <%= simple_form_for [@vinyl, @booking], url: vinyls_path do |f| %>
+            <%= simple_form_for [vinyl, booking] do |f| %>
               <%= f.input :start_rent, label: "Select dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none"} %>
               <%= f.input :end_rent, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
               <div class="modal-footer">
