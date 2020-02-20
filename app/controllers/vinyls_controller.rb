@@ -51,6 +51,14 @@ class VinylsController < ApplicationController
   def show
     @vinyl = Vinyl.find(params[:id])
     authorize @vinyl
+    @booking = Booking.new
+    @bookings       = Booking.where(vinyl_id: @vinyl.id)
+    @bookings_dates = @bookings.map do |booking|
+      {
+        from: booking.start_rent,
+        to:   booking.end_rent
+      }
+    end
   end
 
   # UPDATE

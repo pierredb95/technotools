@@ -8,21 +8,18 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+        <div class="container">
+          <div class="form-wrapper" id="booking-modal-form">
+            <%= simple_form_for [@vinyl, @booking], url: vinyls_path do |f| %>
+              <%= f.input :start_rent, label: "Select dates:", as: :string, required: false, input_html: { id: "range_start", class: "d-none"} %>
+              <%= f.input :end_rent, label: false, as: :string, required: false, input_html: { id: "range_end", class: "d-none" } %>
+              <div class="modal-footer">
+                <%= f.button :submit, "Book", class: "btn btn-primary" %>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            <% end %>
           </div>
-          <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
+        </div>
     </div>
   </div>
 </div>

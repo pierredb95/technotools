@@ -1,17 +1,10 @@
-<!-- <div class="container search mt-5">
-  <form action="/vinyls" method="get" class="d-flex justify-content-between  align-items-center">
-    <input  type="text"   class="border-dark shadow-lg rounded-pill p-4" placeholder="Where?">
-    <input  type="text"   class="border-dark shadow-lg rounded-pill p-4" placeholder="From?">
-    <input  type="text"   class="border-dark shadow-lg rounded-pill p-4" placeholder="To?">
-    <button type="submit" class="border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4"> Find a Vinyl</button>
-  </form>
-</div> -->
-
-<%= form_tag vinyls_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "border-dark shadow-lg rounded-pill p-4",
-    placeholder: "Where?"
-  %>
-  <%= submit_tag "Search", class: "border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4" %>
-<% end %>
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for :search, method: "get", url: vinyls_path do |f| %>
+      <%= f.input :query, as: :string, required: false, input_html: {class: "border-dark shadow-lg rounded-pill p-4"}, placeholder: "Where?" %>
+      <%= f.input :start_rent, as: :string, required: false, input_html: {class: "datepicker border-dark shadow-lg rounded-pill p-4", id: "range_start"}, placeholder: "From?" %>
+      <%= f.input :end_rent, as: :string, required: false, input_html: {class: "datepicker border-dark shadow-lg rounded-pill p-4", id: "range_end"}, placeholder: "To?"%>
+      <%= f.button :submit, "Go", class: "border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4" %>
+    <% end %>
+  </div>
+</div>
