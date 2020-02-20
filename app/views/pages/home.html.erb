@@ -13,6 +13,7 @@
   <div class="d-flex mb-5 justify-content-around">
     <%= link_to vinyl_path(Vinyl.first), class: "link-without-style" do  %>
       <%= render "shared/record_image", vinyl: Vinyl.first %>
+      <iframe width="0" height="0" src="https://www.youtube.com/embed/oolpPmuK2I8?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% end %>
     <%= link_to vinyl_path(Vinyl.second), class: "link-without-style" do  %>
       <%= render "shared/record_image", vinyl: Vinyl.second %>
