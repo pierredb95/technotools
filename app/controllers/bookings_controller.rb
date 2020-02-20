@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     @vinyl = Vinyl.find(params[:vinyl_id])
     @booking.vinyl = @vinyl
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to booking_path(@booking)
     else
