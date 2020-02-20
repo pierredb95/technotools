@@ -1,6 +1,13 @@
 <div class="container">
   <h1>Vinyls</h1>
-
+  <div class="content">
+    <div class="cards">
+      <div class="d-flex mb-5 justify-content-around">
+        <% @vinyls.each do |vinyl| %>
+          <%= render "shared/record_image", vinyl: vinyl %>
+        <% end %>
+      </div>
+    </div>
   <div
     id="map"
     style="width: 100%;
@@ -8,22 +15,10 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
-
-  <% @vinyls.each do |vinyl| %>
-  <div class="card-product">
-    <img src="https://www.pngkey.com/png/full/16-166207_vector-record-yellow-vinyl-vector-transparent-download-lp.png" >
-      <div class="card-info">
-        <h5><%= link_to vinyl.name, vinyl_path(vinyl) %></h5>
-        <h6><%= vinyl.user.pseudo %></h6>
-        <p><%= vinyl.genre.name %> | <%= vinyl.release_date %> | <%= vinyl.address %></p>
-        <br>
-        <p> <%= vinyl.price_per_day %> €</p>
-        <% if policy(vinyl).edit? %>
-          <%= link_to 'Edit', edit_vinyl_path(vinyl) %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </div>
+
+
+
 
 
