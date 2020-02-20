@@ -1,6 +1,6 @@
 <div>
   <div class="record">
-    <%= image_tag "https://res.cloudinary.com/de8kltuyf/image/upload/v1581952923/Technotools/Beattles.jpg", class: 'record-image' %>
+    <%= cl_image_tag vinyl.photo.key, height: 200, width: 200, crop: :fill, class: 'record-image' %>
   </div>
   <div class="record_infos">
     <h3><%= vinyl.name %></h3>
