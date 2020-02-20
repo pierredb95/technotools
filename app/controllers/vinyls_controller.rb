@@ -12,6 +12,7 @@ class VinylsController < ApplicationController
   def create
     @vinyl = Vinyl.new(vinyl_params)
     @vinyl.user = current_user
+    @vinyl.address = current_user.address
     authorize @vinyl
     if @vinyl.save
       redirect_to vinyl_path(@vinyl)

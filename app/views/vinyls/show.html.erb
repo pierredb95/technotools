@@ -22,7 +22,8 @@
       </table>
     </div>
     <div class="col-12">
-      <a href="#" class="btn btn-light booking-btn">Book</a>
+      <button class="btn btn-light booking-btn" data-toggle="modal" data-target="#bookingModal" data-whatever="@mdo">Book</button>
+      <%= render 'shared/modal_booking' %>
     </div>
     <div class="col-12">
       <div class="youtube-player float-right">
@@ -40,7 +41,9 @@
           <h4>Last Reviews</h4>
           <div class="review">
             <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
-            <a href="#" class="btn btn-light">See all Reviews</a>
+            <button class="btn btn-light" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">See all Reviews</button>
+            <%= render 'shared/modal_reviews' %>
+            <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Leave a review</button> -->
           </div>
         </div>
       </div>
