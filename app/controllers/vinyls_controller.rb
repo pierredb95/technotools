@@ -26,9 +26,17 @@ class VinylsController < ApplicationController
   def index
     @vinyls = policy_scope(Vinyl)
     if params[:query].present?
-      @vinyls = Vinyl.where(address: params[:query])
+      sql_query = " \
+            vinyls.address ILIKE :query \
+            OR genres.name ILIKE :query \
+            OR artists.name ILIKE :query \
+            OR users.pseudo ILIKE :query \
+
+
+          "
+      @vinyls = Vinyl.joins(:genre).joins(:artist).joins(:user).where(sql_query, query: "%#{params[:query]}%")
     else
-      @vinyls
+      @vinyls = Vinyl.all
     end
     @markers = @vinyls.map do |vinyl|
       {
