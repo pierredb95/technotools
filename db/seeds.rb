@@ -89,28 +89,28 @@ concerto_album  = URI.open('https://m.media-amazon.com/images/I/A1wwRtO-RgL._SS5
 
 #Generating all Vinyls
 puts 'Creating Vinyls'
-abbeyroad     = Vinyl.create(name:'Abbey Road',                   release_date: '1986', price_per_day: 3,    user: marco,   artist: beattles, genre: rock,      address: marco.address)
+abbeyroad     = Vinyl.create(name:'Abbey Road',                   release_date: '01/01/1986', price_per_day: 3,    user: marco,   artist: beattles, genre: rock,      address: marco.address)
 abbeyroad.photo.attach(io: abbeyroad_album, filename: 'abbeayroad.png', content_type: 'image/png')
 
-bad           = Vinyl.create(name:'Bad',                          release_date: '1987', price_per_day: 5,    user: djbaz,   artist: michael,  genre: pop,       address: djbaz.address)
+bad           = Vinyl.create(name:'Bad',                          release_date: '01/01/1987', price_per_day: 5,    user: djbaz,   artist: michael,  genre: pop,       address: djbaz.address)
 bad.photo.attach(io: bad_album, filename: 'bad.png', content_type: 'image/png')
 
-stickyfingers = Vinyl.create(name:'Sticky Fingers',               release_date: '1971', price_per_day: 2,    user: pedro,   artist: stones,   genre: rock,      address: pedro.address)
+stickyfingers = Vinyl.create(name:'Sticky Fingers',               release_date: '01/01/1971', price_per_day: 2,    user: pedro,   artist: stones,   genre: rock,      address: pedro.address)
 stickyfingers.photo.attach(io: sticky_album, filename: 'strickyfingers.png', content_type: 'image/png')
 
-wings         = Vinyl.create(name:'Wings',                        release_date: '2016', price_per_day: 3.99, user: dourte,  artist: bts,      genre: electro,   address: dourte.address)
+wings         = Vinyl.create(name:'Wings',                        release_date: '01/01/2016', price_per_day: 3.99, user: dourte,  artist: bts,      genre: electro,   address: dourte.address)
 wings.photo.attach(io: wings_album, filename: 'wings.png', content_type: 'image/png')
 
-tutu          = Vinyl.create(name:'Tutu',                         release_date: '1986', price_per_day: 10,   user: ricardo, artist: miles,    genre: jazz,      address: ricardo.address)
+tutu          = Vinyl.create(name:'Tutu',                         release_date: '01/01/1986', price_per_day: 10,   user: ricardo, artist: miles,    genre: jazz,      address: ricardo.address)
 tutu.photo.attach(io: tutu_album, filename: 'tutu.png', content_type: 'image/png')
 
-encore        = Vinyl.create(name:'Encore',                       release_date: '2004', price_per_day: 0.27, user: carl,    artist: eminem,   genre: rap,       address: carl.address)
+encore        = Vinyl.create(name:'Encore',                       release_date: '01/01/2004', price_per_day: 0.27, user: carl,    artist: eminem,   genre: rap,       address: carl.address)
 encore.photo.attach(io: encore_album, filename: 'encore.png', content_type: 'image/png')
 
-legend        = Vinyl.create(name:'Legend',                       release_date: '1984', price_per_day: 1000, user: octave,  artist: bob,      genre: reggae,    address: octave.address)
+legend        = Vinyl.create(name:'Legend',                       release_date: '01/01/1984', price_per_day: 1000, user: octave,  artist: bob,      genre: reggae,    address: octave.address)
 legend.photo.attach(io: legend_album, filename: 'legend.png', content_type: 'image/png')
 
-concerto      = Vinyl.create(name:'Concert pour Violon op.8 n°1', release_date: '1703', price_per_day: 5,    user: giorgo,  artist: vivaldi,  genre: classique, address: giorgo.address)
+concerto      = Vinyl.create(name:'Concert pour Violon op.8 n°1', release_date: '01/01/1703', price_per_day: 5,    user: giorgo,  artist: vivaldi,  genre: classique, address: giorgo.address)
 concerto.photo.attach(io: concerto_album, filename: 'concerto.png', content_type: 'image/png')
 
 p Vinyl.all
