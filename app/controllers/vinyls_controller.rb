@@ -4,13 +4,19 @@ class VinylsController < ApplicationController
   # CREATE
   def new
     @vinyl = Vinyl.new
-    @artists = Artist.all
-    @genres = Genre.all
+    @artist = Artist.new
     authorize @vinyl
   end
 
   def create
     @vinyl = Vinyl.new(vinyl_params)
+    user_artist = params[:vinyl][:artist]
+    if Artist.find_by(name: user_artist).nil?
+      artist = Artist.create(name: user_artist)
+    else
+      artist = Artist.find_by(name: user_artist)
+    end
+    @vinyl.artist = artist
     @vinyl.user = current_user
     @vinyl.address = current_user.address
     authorize @vinyl
