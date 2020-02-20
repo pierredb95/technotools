@@ -2,7 +2,6 @@
 <%= cl_image_tag @vinyl.photo.key, alt: "alttext", class: "background-vinyl-show" %>
   <!-- <div style="background-image: url('<%= cl_image_path background_url %>');" class="background-vinyl-show"> -->
   <!-- add @binyl.photo.key -->
-<%= render "shared/navbar" %>
 <div class="container infos text-right pb-3">
   <div class="row">
     <div class="col-12 mt-1">
@@ -15,7 +14,7 @@
             <th scope="col">Price per Day</th>
           </tr>
           <tr>
-            <td><%= @vinyl.release_date.strftime("%m/%d/%Y") %></td>
+
             <td><%= @vinyl.genre.name %></td>
             <td>$<%= @vinyl.price_per_day %></td>
           </tr>
