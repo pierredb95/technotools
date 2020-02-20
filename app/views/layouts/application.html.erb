@@ -11,6 +11,7 @@
   </head>
   <% background_color = (params[:action] == "home" || (params[:controller] == "vinyls" && params[:action] == "index")  ? 'background-white' : 'background-gray') %>
   <body class="<%= background_color %>">
+    <%= render "shared/navbar" %>
     <%= render 'shared/flashes' %>
     <%= yield %>
     <% unless params[:controller] == "vinyls" && params[:action] == "show" %>
