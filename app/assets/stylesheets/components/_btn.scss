@@ -1,0 +1,16 @@
+.new-vinyl-btn {
+  width: 100%;
+  border: 1px solid $gray;
+  text-align: center;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+
+.delete-btn {
+  color: $gray;
+  font-size: 25px;
+  &:hover {
+    color: $light-gray;
+  }
+}
