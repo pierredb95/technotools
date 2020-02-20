@@ -2,55 +2,78 @@
 <%= cl_image_tag @vinyl.photo.key, alt: "alttext", class: "background-vinyl-show" %>
   <!-- <div style="background-image: url('<%= cl_image_path background_url %>');" class="background-vinyl-show"> -->
   <!-- add @binyl.photo.key -->
-<div class="container infos text-right pb-3">
-  <div class="row">
-    <div class="col-12 mt-1">
+
+<div class="container infos pb-3">
+  <div class="row m-1 mt-3 mb-4">
+    <div class="col-12 col-lg-4">
+    </div>
+    <div class="col-12 col-lg-8">
       <h1><%= @vinyl.name %></h1>
-      <h2><%= @vinyl.artist.name %></h2>
-      <table class="table table-dark table-info borderless float-right" style="background-color: transparent">
+      <h1><%= @vinyl.artist.name %></h1>
+      <table class="table table-dark table-info borderless" style="background-color: transparent">
           <tr>
             <th scope="col">Release Date</th>
             <th scope="col">Genre</th>
             <th scope="col">Price per Day</th>
           </tr>
           <tr>
-
+            <td><%= @vinyl.release_date.strftime('%d %B %Y') %></td>
             <td><%= @vinyl.genre.name %></td>
-            <td>$<%= @vinyl.price_per_day %></td>
+            <td><%= @vinyl.price_per_day %> €</td>
           </tr>
       </table>
-    </div>
-    <div class="col-12">
-      <button class="btn btn-light booking-btn"
-        data-toggle="modal"
-          data-target="#bookingModal"
-            data-whatever="@<%= @bookings_dates.to_json %>"
+      <button class="btn btn-light booking-btn mt-3"
+              data-toggle="modal"
+              data-target="#bookingModal"
+              data-whatever="@<%= @bookings_dates.to_json %>"
               id="booking-form-div"
-               data-bookings="<%= @bookings_dates.to_json %>">Book</button>
+              data-bookings="<%= @bookings_dates.to_json %>">
+        Book</button>
       <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking %>
     </div>
-    <div class="col-12">
+  </div>
+  <div class="row m-1 mt-5 mb-4">
+    <div class="col-12 col-lg-4">
+    </div>
+    <div class="col-12 col-lg-3 my-auto">
+      <h3>Tracklist</h3>
+      <% @vinyl.tracks.each do |track| %>
+        <ul class="list-unstyled list-group list-group-horizontal ml-3">
+          <a href="" class="link-without-style"><li><%= track.name %></li></a>
+        </ul>
+      <% end %>
+    </div>
+    <div class="col-12 col-lg-5 my-auto">
       <div class="youtube-player float-right">
         <iframe display="block" title="YouTube Player" width="100%" height="100%" src="https://www.youtube.com/embed?listType=playlist&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD" frameborder="0" class="mt-2 mb-2"></iframe>
       </div>
     </div>
-    <div class="col-12">
-      <div class="links d-flex float-right justify-content-between mt-2">
+  </div>
+  <div class="row m-1 mt-3">
+     <div class="col-12 col-lg-4">
+    </div>
+    <div class="col-12 col-lg-4 my-auto">
+      <div class="links d-flex justify-content-between mt-2">
         <div class="owner d-flex flex-column justify-content-between">
-          <h4><%= @vinyl.user.email %></h4>
+          <h3>Owner</h3>
+          <h4><%= @vinyl.user.pseudo %></h4>
+          <p><%= @vinyl.user.email %></p>
           <p><%= @vinyl.user.address %></p>
-          <a href="#" class="btn btn-light">See User</a>
         </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 my-auto">
+      <div class="review">
+        <h3>Review</h3>
+        <h4>Last Review</h4>
         <div class="review">
-          <h4>Last Reviews</h4>
-          <div class="review">
-            <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
-            <button class="btn btn-light" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">See all Reviews</button>
-            <%= render 'shared/modal_reviews' %>
-            <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Leave a review</button> -->
-          </div>
+          <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
+          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">See all Reviews</button>
+          <%= render 'shared/modal_reviews' %>
+          <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Leave a review</button> -->
         </div>
       </div>
     </div>
   </div>
 </div>
+
