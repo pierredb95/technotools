@@ -1,9 +1,10 @@
-<div class="container devise-form">
-  <h1>NEW BOOKING</h1>
 
-  <%= simple_form_for [@vinyl, @booking] do |f| %>
-    <%= f.input :start_rent, as: :date %>
-    <%= f.input :end_rent, as: :date %>
-    <%= f.submit class: 'btn btn-primary' %>
-  <% end %>
+<div class="container">
+  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <%= simple_form_for :search, method: "get", url: vinyls_path do |f| %>
+      <%= f.input :start_rent, as: :string, required: false, input_html: {class: "datepicker border-dark shadow-lg rounded-pill p-4", id: "range_start"}, placeholder: "From?" %>
+      <%= f.input :end_rent, as: :string, required: false, input_html: {class: "datepicker border-dark shadow-lg rounded-pill p-4", id: "range_end"}, placeholder: "To?"%>
+      <%= f.button :submit, "Book #{@vinyl.name}", class: "border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4" %>
+    <% end %>
+  </div>
 </div>
