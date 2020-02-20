@@ -10,7 +10,10 @@
 <div class="container">
   <h2>Break the music barrier</h2>
   <h4>Lend and share your records with the vinyl enthusiasts around you!</h4>
-  <%= render "shared/record_image" %>
+  <div class="d-flex mb-5 justify-content-around">
+    <%= render "shared/record_image", vinyl: Vinyl.first %>
+    <%= render "shared/record_image", vinyl: Vinyl.second %>
+    <%= render "shared/record_image", vinyl: Vinyl.third %>
   </div>
 </div>
 
