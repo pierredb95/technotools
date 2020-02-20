@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [ :new, :create, :edit, :update]
   end
 
+  resources :artists, only: [ :new, :create]
+
 end
