@@ -6,7 +6,7 @@
   background-repeat:   no-repeat;
   background-size:     cover;
   border:              1px solid white;
-  opacity:             0.5;
+  opacity:             0.2;
   margin-left:         -100px;
   position:            fixed;
 }
@@ -53,9 +53,9 @@ repeat[n="5"]:before {
 }
 
 .table-info {
-  width: 500px;
+  width: 100%;
   background-color: transparent;
-  width: 50%;
+  text-align: center;
 }
 
 .borderless th {
@@ -63,7 +63,7 @@ repeat[n="5"]:before {
 }
 
 .youtube-player {
-  width: 500px;
+  width: 100%;
   height: 300px;
   margin-bottom: 10px;
 }
@@ -74,26 +74,12 @@ repeat[n="5"]:before {
 }
 
 .booking-btn {
-  width: 500px
+  width: 100%
 }
 
-
-@media (max-width: 1000px) {
-  .table-info {
-    width: 500px;
-  }
-}
 
 @media (max-width: 550px) {
   /* For a screen < 550px, this CSS will be read */
-  .youtube-player {
-    width: 100%;
-  }
-
-  .table-info {
-    width: 100%;
-  }
-
   .links {
     width: 100%;
     flex-direction: column;
@@ -106,3 +92,7 @@ repeat[n="5"]:before {
 
 }
 
+.btn-review {
+  width: 100%;
+  vertical-align: center;
+}
