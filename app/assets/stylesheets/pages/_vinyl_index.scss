@@ -1,7 +1,7 @@
-.content {
+.content-index {
   display: flex;
 }
-.cards {
+.cards-index {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -9,17 +9,11 @@
   padding: 16px;
 }
 
-#map {
-  height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
 /*Media Queries*/
 
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
-  .cards {
+  .cards-index {
     grid-template-columns: 1fr;
   }
   #map {
@@ -29,7 +23,7 @@
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-  .cards {
+  .cards-index {
     grid-template-columns: 1fr 1fr;
   }
   #map {
@@ -39,7 +33,7 @@
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
-  .cards {
+  .cards-index {
     grid-template-columns: 1fr 1fr 1fr;
   }
   #map {

@@ -33,18 +33,6 @@
     repeating-radial-gradient(#2a2928, #2a2928 4px, #ada9a0 5px, #2a2928 6px);
   background-size: 50% 100%, 100% 50%, 100% 100%;
 }
-.record:after {
-  position: absolute;
-  top: 50%; left: 50%;
-  margin: -35px;
-  border: solid 1px #d9a388;
-  width: 68px; height: 68px;
-  border-radius: 50%;
-  box-shadow: 0 0 0 4px #da5b33,
-    inset 0 0 0 27px #da5b33;
-  background: #b5ac9a;
-  content: '';
-}
 
 .record_infos {
   text-align: center;
