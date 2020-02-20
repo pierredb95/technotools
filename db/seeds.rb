@@ -65,7 +65,7 @@ Genre.create(name:'Musique Latino')
 
 #Generating all Vinyls
 puts 'Creating Vinyls'
-AbbeyRoad = Vinyl.create(name:'AbbeyRoad', release_date: '1986', price_per_day: 3, user: marco, artist: miles, genre: jazz, address: 'lille')
+AbbeyRoad = Vinyl.create(name:'AbbeyRoad', release_date: '1986', price_per_day: 3, user: marco, artist: miles, genre: jazz, address: '156 rue nationale lille')
 Bad = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '146 rue nationale lille')
 Good = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '52 rue de la clef lille')
 Toto = Vinyl.create(name:'Bad', release_date: '1987', price_per_day: 5, user: djbaz, artist: michael, genre: pop, address: '119 rue nationale lille')
