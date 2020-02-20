@@ -9,11 +9,19 @@ class BookingPolicy < ApplicationPolicy
     user
   end
 
+  def create?
+    user
+  end
+
   def index?
     record.user == user
   end
 
   def show?
+    record.user == user
+  end
+
+  def edit?
     record.user == user
   end
 

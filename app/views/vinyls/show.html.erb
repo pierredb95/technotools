@@ -27,7 +27,7 @@
             data-whatever="@<%= @bookings_dates.to_json %>"
               id="booking-form-div"
                data-bookings="<%= @bookings_dates.to_json %>">Book</button>
-      <%= render 'shared/modal_booking' %>
+      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking %>
     </div>
     <div class="col-12">
       <div class="youtube-player float-right">
