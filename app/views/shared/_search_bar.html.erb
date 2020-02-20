@@ -2,8 +2,6 @@
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
     <%= simple_form_for :search, method: "get", url: vinyls_path do |f| %>
       <%= f.input :query, as: :string, required: false, input_html: {class: "border-dark shadow-lg rounded-pill p-4"}, placeholder: "Where?" %>
-      <%= f.input :start_rent, as: :string, required: false, input_html: {class: "datepicker border-dark shadow-lg rounded-pill p-4", id: "range_start"}, placeholder: "From?" %>
-      <%= f.input :end_rent, as: :string, required: false, input_html: {class: "datepicker border-dark shadow-lg rounded-pill p-4", id: "range_end"}, placeholder: "To?"%>
       <%= f.button :submit, "Go", class: "border-dark shadow-lg rounded-pill bg-transparent font-weight-bolder btn btn-light p-4" %>
     <% end %>
   </div>

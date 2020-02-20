@@ -27,9 +27,9 @@
               data-target="#bookingModal"
               data-whatever="@<%= @bookings_dates.to_json %>"
               id="booking-form-div"
-              data-bookings="<%= @bookings_dates.to_json %>"
-              >Book</button>
-      <%= render 'shared/modal_booking' %>
+              data-bookings="<%= @bookings_dates.to_json %>">
+        Book</button>
+      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking %>
     </div>
   </div>
   <div class="row m-1 mt-5 mb-4">

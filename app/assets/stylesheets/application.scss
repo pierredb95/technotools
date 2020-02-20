@@ -21,3 +21,6 @@ body {
   }
 }
 
+.global-container {
+  min-height: calc(100vh - 168px - 66px);
+}
