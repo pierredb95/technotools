@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path
     else
       render :new
     end
@@ -24,11 +24,6 @@ class BookingsController < ApplicationController
   def index
     @vinyls = current_user.vinyls
     @bookings = policy_scope(Booking)
-  end
-
-  def show
-    @booking = Booking.find(params[:id])
-    authorize @booking
   end
 
   # UPDATE

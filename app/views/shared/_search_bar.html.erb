@@ -1,7 +1,7 @@
-<div class="container search">
+<div class="container search d-flex align-items-center">
     <%= simple_form_for :search, method: "get", url: vinyls_path do |f| %>
         <div class="d-flex justify-content-center">
-          <%= f.input :query, as: :string, required: false, input_html: {class: "border-dark shadow-lg rounded-pill btn-lg"}, placeholder: "What do you want?", label: false %>
+          <%= f.input :query, as: :string, required: false, input_html: {class: "border-dark shadow-lg rounded-pill py-4"}, placeholder: "Looking for something?", label: false %>
           <%= f.button :submit, "Find a vinyl", class: "border-dark shadow-lg rounded-pill bg-white font-weight-bolder btn btn-light btn-lg mb-5 ml-2" %>
         </div>
     <% end %>

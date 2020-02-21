@@ -39,6 +39,8 @@
       <h3 id="test">Tracklist</h3>
       <% if @vinyl.tracks.first.nil? %>
         <h5>No track available for this vinyl</h5>
+        <button class="btn btn-light btn-review" data-toggle="modal" data-target="#addTrack" data-whatever="@mdo">Add Track </button>
+        <%= render 'shared/modal_add_track'%>
       <% end %>
       <% @vinyl.tracks.each do |track| %>
         <ul class="list-unstyled list-group list-group-horizontal ml-3">
