@@ -2,14 +2,14 @@
   <h1 class="mb-3">My research</h1>
   <div id="map" style="height: 600px; width: 100%;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-</div>
-<div class="content-index">
-  <div class="cards-index">
-    <% @vinyls.each do |vinyl| %>
-      <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
-        <%= render "shared/record_image", vinyl: vinyl%>
+  <div class="content-index">
+    <div class="cards-index">
+      <% @vinyls.each do |vinyl| %>
+        <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
+          <%= render "shared/record_image", vinyl: vinyl%>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
 
