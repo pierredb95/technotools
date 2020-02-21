@@ -1,0 +1,10 @@
+<div>
+  <div class="delete-btn"><i class="far fa-trash-alt"> <%= link_to 'Delete', vinyl_path(vinyl), method: :delete %> </i></div>
+  <div class="record">
+    <%= cl_image_tag vinyl.photo.key, height: 200, width: 200, crop: :fill, class: 'record-image' %>
+  </div>
+  <div class="record_infos">
+    <h3><%= vinyl.name %></h3>
+    <h5><%= vinyl.artist.name %></h5>
+  </div>
+</div>

@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
 
   # READ
   def index
+    @vinyls = current_user.vinyls
     @bookings = policy_scope(Vinyl)
   end
 

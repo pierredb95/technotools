@@ -31,13 +31,6 @@ class VinylsController < ApplicationController
   # READ
 
   def index
-    puts "   "
-    p params[:query]
-    puts "   "
-    p params[:search]
-    puts "   "
-    p params[:search][:query]
-    puts "   "
     @vinyls = policy_scope(Vinyl)
     if params[:search][:query].present?
       sql_query = " \

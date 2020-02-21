@@ -1,3 +1,13 @@
-<h1>Bookings of the user</h1>
-
-
+<div class="container">
+  <h1>Bookings of the user</h1>
+  <div class="content-index">
+    <div class="cards-index">
+      <% @vinyls.each do |vinyl| %>
+        <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
+          <%= render "shared/record_image_booking", vinyl: vinyl%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="new-vinyl-btn"> <%= link_to "Add a vinyl", new_vinyl_path %> </div>
+</div>
