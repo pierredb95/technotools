@@ -77,8 +77,17 @@ class VinylsController < ApplicationController
 
   def update
     @vinyl = Vinyl.find(params[:id])
+    user_artist = params[:vinyl][:artist]
+    if Artist.find_by(name: user_artist).nil?
+      artist = Artist.create(name: user_artist)
+    else
+      artist = Artist.find_by(name: user_artist)
+    end
+    @vinyl.artist = artist
+    @vinyl.user = current_user
+    @vinyl.address = current_user.address
     authorize @vinyl
-    if @vinyl.update(vinyl_params)
+    if @vinyl.save
       redirect_to vinyl_path(@vinyl)
     else
       render :edit
