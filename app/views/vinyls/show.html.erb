@@ -36,17 +36,17 @@
     <div class="col-12 col-lg-4">
     </div>
     <div class="col-12 col-lg-3 my-auto">
-      <h3 id="test">Tracklist</h3>
+      <h3 id="test" class="mb-4">Tracklist</h3>
       <% if @vinyl.tracks.first.nil? %>
         <h5>No track available for this vinyl</h5>
-        <button class="btn btn-light btn-review" data-toggle="modal" data-target="#addTrack" data-whatever="@mdo">Add Track </button>
-        <%= render 'shared/modal_add_track'%>
       <% end %>
       <% @vinyl.tracks.each do |track| %>
         <ul class="list-unstyled list-group list-group-horizontal ml-3">
           <a href="#" class="link-without-style track-name" onclick="console.log(selectText())" data-url="<%= track.url[-11..-1] %>"><li><%= track.name %></li></a>
         </ul>
       <% end %>
+      <button class="btn btn-light btn-review mt-4 mb-3" data-toggle="modal" data-target="#addTrack" data-whatever="@mdo">Add Track </button>
+      <%= render 'shared/modal_add_track'%>
     </div>
     <div class="col-12 col-lg-5 my-auto">
       <div class="youtube-player float-right">
@@ -72,10 +72,13 @@
     <div class="col-12 col-lg-4 my-auto">
       <h3>Review</h3>
       <h4>Last Review</h4>
-      <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
+      <% if @vinyl.reviews.empty? %>
+        <p></p>
+      <% else %>
+        <p><strong><%= @vinyl.reviews.last.booking.user.pseudo %></strong>:  <repeat n='<%= @vinyl.reviews.last.rating %>'></repeat>  <%= @vinyl.reviews.last.comment %></p>
+      <% end %>
       <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">Post & Read Reviews </button>
       <%= render 'shared/modal_reviews' %>
     </div>
   </div>
 </div>
-
