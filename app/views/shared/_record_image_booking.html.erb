@@ -1,0 +1,14 @@
+<div>
+  <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
+    <div class="record">
+      <%= cl_image_tag vinyl.photo.key, height: 200, width: 200, crop: :fill, class: 'record-image'%>
+    </div>
+    <div class="record_infos">
+      <h3><%= vinyl.name %></h3>
+      <h5><%= vinyl.artist.name %></h5>
+      <%= link_to "EDIT", edit_vinyl_path(vinyl), class: "btn btn-secondary btn-block" %>
+      <br>
+      <%= link_to "DELETE", vinyl_path(vinyl), method: :delete, data: { confirm: "Sure ?" }, class: "btn btn-dark btn-block" %>
+    </div>
+  <% end %>
+</div>
