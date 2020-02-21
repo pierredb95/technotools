@@ -1,13 +1,33 @@
-<div class="container">
-  <h1>Bookings of the user</h1>
-  <div class="content-index">
-    <div class="cards-index">
+<div id='booking-page'>
+  <div class="sidenav">
+    <div class="side-nav-container">
+      <h6 id='my_vinyls' class='tab'>My Vinyls</h6>
+      <h6 id='my_bookings' class='tab'>My Orders</h6>
+      <br>
+      <h6> <%= link_to '+ Post New Vinyl',  new_vinyl_path, class: "link-without-style" %></h6>
+    </div>
+  </div>
+
+  <div class='container'>
+    <div class="cards-index my-vinyls">
       <% @vinyls.each do |vinyl| %>
-        <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
-          <%= render "shared/record_image_booking", vinyl: vinyl%>
+          <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
+            <%= render "shared/record_image", vinyl: vinyl%>
+            <%= link_to "+", vinyl_path(vinyl), method: :delete, data: { confirm: "Sure ?" }, class: "card-category-remove link-without-style"  %>
+          <% end %>
+      <% end %>
+    </div>
+
+    <div class="cards-index my-bookings d-none">
+      <% @bookings.each do |booking| %>
+        <%= link_to vinyl_path(booking.vinyl), class: "link-without-style" do  %>
+          <%= render "shared/record_image", vinyl: booking.vinyl%>
         <% end %>
       <% end %>
     </div>
   </div>
-  <div class="new-vinyl-btn"> <%= link_to "Add a vinyl", new_vinyl_path %> </div>
 </div>
+
+
+
+

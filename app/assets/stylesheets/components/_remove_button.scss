@@ -1,0 +1,16 @@
+.card-category-remove {
+  font-size: 50px;
+  text-decoration: none;
+  position: absolute;
+  transform: rotate(45deg);
+  color: #B2B2B2;
+  opacity: 0.8;
+  font-weight: 400;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+    color: #DE5349;
+    transform: rotate(45deg);
+  }
+}

@@ -90,7 +90,7 @@ class VinylsController < ApplicationController
     @vinyl = Vinyl.find(params[:id])
     authorize @vinyl
     @vinyl.destroy
-    redirect_to vinyls_path
+    redirect_to request.referrer
   end
 
   # SECURITY FOR PARAMS

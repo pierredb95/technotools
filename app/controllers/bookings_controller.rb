@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
   # READ
   def index
     @vinyls = current_user.vinyls
-    @bookings = policy_scope(Vinyl)
+    @bookings = policy_scope(Booking)
   end
 
   def show
