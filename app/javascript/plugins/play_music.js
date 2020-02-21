@@ -28,7 +28,3 @@ vinyl3.addEventListener('mouseover', (event) => {
 vinyl3.addEventListener('mouseleave', (event) => {
   video3.src = '';
 });
-
-
-
-

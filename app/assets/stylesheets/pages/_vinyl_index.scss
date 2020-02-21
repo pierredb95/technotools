@@ -1,12 +1,20 @@
 .content-index {
   display: flex;
 }
+
 .cards-index {
   flex-grow: 1;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 24px;
   padding: 16px;
+  justify-content: start;
+  padding: 10px;
+}
+
+#map {
+  height: 50vh;
+  z-index:4;
 }
 
 /*Media Queries*/
@@ -32,7 +40,7 @@
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .cards-index {
     grid-template-columns: 1fr 1fr 1fr;
   }

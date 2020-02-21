@@ -8,8 +8,7 @@
     <%= f.input :price_per_day, as: :integer, placeholder: '€' %>
     <%= f.association :genre, placeholder: 'Rock' %>
     <%= f.input :address, placeholder: '119 rue Nationale, Lille, 59000, France' %>
-    <%= f.input :photo, as: :file %>
-    <!-- required: false  -->
+    <%= f.input :photo, as: :file, required: true %>
     <%= f.submit class: "btn btn-primary" %>
   <% end %>
 </div>

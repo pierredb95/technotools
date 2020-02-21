@@ -8,6 +8,7 @@ initMapbox();
 
 
 import "../plugins/flatpickr"
+import "../plugins/play_music"
 
 import "../plugins/play_music"
 

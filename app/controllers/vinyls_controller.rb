@@ -5,6 +5,7 @@ class VinylsController < ApplicationController
   def new
     @vinyl = Vinyl.new
     @artist = Artist.new
+    @review = Review.new
     authorize @vinyl
   end
 
@@ -30,13 +31,6 @@ class VinylsController < ApplicationController
   # READ
 
   def index
-    puts "   "
-    p params[:query]
-    puts "   "
-    p params[:search]
-    puts "   "
-    p params[:search][:query]
-    puts "   "
     @vinyls = policy_scope(Vinyl)
     if params[:search][:query].present?
       sql_query = " \
@@ -63,6 +57,7 @@ class VinylsController < ApplicationController
 
   def show
     @vinyl = Vinyl.find(params[:id])
+    @review = Review.new
     authorize @vinyl
     @booking = Booking.new
     @bookings       = Booking.where(vinyl_id: @vinyl.id)

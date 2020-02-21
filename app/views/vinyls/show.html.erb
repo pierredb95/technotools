@@ -29,7 +29,7 @@
               id="booking-form-div"
               data-bookings="<%= @bookings_dates.to_json %>">
         Book</button>
-      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking %>
+      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking  %>
     </div>
   </div>
   <div class="row m-1 mt-5 mb-4">
@@ -52,8 +52,8 @@
      <div class="col-12 col-lg-4">
     </div>
     <div class="col-12 col-lg-4 my-auto">
-      <div class="links d-flex justify-content-between mt-2">
-        <div class="owner d-flex flex-column justify-content-between">
+      <div class="links mt-2">
+        <div class="owner justify-content-between text-wrap">
           <h3>Owner</h3>
           <h4><%= @vinyl.user.pseudo %></h4>
           <p><%= @vinyl.user.email %></p>
@@ -62,12 +62,10 @@
       </div>
     </div>
     <div class="col-12 col-lg-4 my-auto">
-      <div class="review">
         <h3>Review</h3>
         <h4>Last Review</h4>
-        <div class="review">
           <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
-          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">See all Reviews</button>
+          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">Post & Read Reviews </button>
           <%= render 'shared/modal_reviews' %>
           <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Leave a review</button> -->
         </div>
