@@ -12,14 +12,14 @@ class ReviewsController < ApplicationController
 
   def create
     @review  = Review.new(review_params)
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.where(vinyl_id: params[:vinyl_id], user_id: current_user.id).last
     @review.booking = @booking
 
     authorize @review
     if @review.save
       redirect_to vinyl_path(@booking.vinyl)
     else
-      render :new
+      redirect_to vinyl_path(params[:vinyl_id]), :alert => "Only users who booked this vinyl can write reviews"
     end
   end
 
