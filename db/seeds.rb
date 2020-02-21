@@ -24,7 +24,7 @@ puts 'Creating Users'
 marco   = User.create(pseudo:'MarcoFullStack', address:'19 rue Nationale, 59800 Lille',                                 email:'marc.combarel@edhec.com',   password:'azerty')
 dourte  = User.create(pseudo:'Dourtealacreme', address:'53 rue de la Barre, 59800 Lille',                               email:'augustin.dortu@edhec.com',  password:'azerty')
 pedro   = User.create(pseudo:'Pedro',          address:'24 rue de Londres, 75000 Paris',                                email:'pierre.debilbao@edhec.com', password:'azerty')
-djbaz   = User.create(pseudo:'DJBaz',          address:'Champ de Mars, 5 Avenue Anatole France, 75007 Paris',           email:'basile.masson@edhec.com',   password:'azerty')
+djbaz   = User.create(pseudo:'DJBaz',          address:'52 rue de la Clef, 59800 Lille',                                email:'basile.masson@edhec.com',   password:'azerty')
 ricardo = User.create(pseudo:'Ricardo',        address:'Eichenstraße 4, 12435 Berlin, Allemagne',                       email:'ricardo@test.com',          password:'azerty')
 carl    = User.create(pseudo:'Carl Cox',       address:'77A Charterhouse St, Farringdon, London EC1M 6HJ, Royaume-Uni', email:'carl@test.com',             password:'azerty')
 octave  = User.create(pseudo:'Octave',         address:'712 Cass Ave, Detroit, MI 48226, États-Unis',                   email:'octave@test.com',           password:'azerty')

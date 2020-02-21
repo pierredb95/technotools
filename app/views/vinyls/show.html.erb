@@ -36,16 +36,21 @@
     <div class="col-12 col-lg-4">
     </div>
     <div class="col-12 col-lg-3 my-auto">
-      <h3>Tracklist</h3>
+      <h3 id="test">Tracklist</h3>
+      <% if @vinyl.tracks.first.nil? %>
+       <h5>No track available for this vinyl</h5>
+      <% end %>
       <% @vinyl.tracks.each do |track| %>
         <ul class="list-unstyled list-group list-group-horizontal ml-3">
-          <a href="" class="link-without-style"><li><%= track.name %></li></a>
+          <a href="#" class="link-without-style track-name" onclick="console.log(selectText())" data-url="<%= track.url[-11..-1] %>"><li><%= track.name %></li></a>
         </ul>
       <% end %>
     </div>
     <div class="col-12 col-lg-5 my-auto">
       <div class="youtube-player float-right">
-        <iframe width="100%" height="100%" src="http://www.youtube.com/embed/<%= @vinyl.tracks.first.url[-11..-1] %>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <% unless @vinyl.tracks.first.nil? %>
+          <iframe width="100%" height="100%" src="http://www.youtube.com/embed/<%= @vinyl.tracks.first.url[-11..-1] %>" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen id="iframe"></iframe>
+        <% end %>
       </div>
     </div>
   </div>
