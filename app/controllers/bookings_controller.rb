@@ -26,11 +26,6 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking)
   end
 
-  def show
-    @booking = Booking.find(params[:id])
-    authorize @booking
-  end
-
   # UPDATE
   def edit
     @booking = Booking.find(params[:id])

@@ -5,13 +5,15 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(artist_params)
+    @track = Track.new(tack_params)
+    vinyl = Vinyl.find(params[:vinyl_id])
+    @track.vinyl = vinyl
     # @artist.user = current_user
     authorize @track
     if @track.save
-      redirect_to track_path(@track)
+      redirect_to vinyl_path(vinyl)
     else
-      render :new
+      redirect_to vinyl_path(vinyl), :alert => "Enter a valid title and a correct Youtube url "
     end
   end
 
@@ -19,5 +21,11 @@ class TracksController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def tack_params
+    params.require(:track).permit(:name, :url, :vinyl_id)
   end
 end
