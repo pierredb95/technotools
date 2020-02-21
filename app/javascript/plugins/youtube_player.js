@@ -1,5 +1,4 @@
 const trackNames = document.querySelectorAll(".track-name");
-console.log(trackNames[0].dataset.url);
 const iframe = document.getElementById("iframe");
 
 if (trackNames) {
