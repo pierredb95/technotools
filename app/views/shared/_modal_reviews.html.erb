@@ -2,40 +2,36 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Reviews</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-
-      <!-- Review on vinyl not on booking -->
-      <button class="btn btn-primary w-100 mb-4" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Click to leave a comment
-      </button>
-
+        <button class="btn btn-dark w-100 mb-4" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Click to leave a comment
+        </button>
+      </div>
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
           <%= simple_form_for [ @vinyl, @review ] do |f| %>
             <%= f.input :comment %>
             <%= f.input :rating %>
-            <%= f.submit class: 'btn btn-primary w-100'%>
+            <%= f.submit class: 'btn btn-dark w-100'%>
           <% end %>
         </div>
       </div>
-
-        <% @vinyl.reviews.reverse.each do |review| %>
-          <div class="review-card">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-            <div class="review-card-infos">
-              <h4><%= review.booking.user.pseudo %> </h4>
-              <repeat n='<%= review.rating %>'></repeat>
-              <p><%= review.comment %></p>
-              <p><%= review.created_at.strftime('%d %B %Y') %></p>
-            </div>
+      <% @vinyl.reviews.reverse.each do |review| %>
+        <div class="review-card">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="review-card-infos">
+            <h4><%= review.booking.user.pseudo %> </h4>
+            <repeat n='<%= review.rating %>'></repeat>
+            <p><%= review.comment %></p>
+            <p><%= review.created_at.strftime('%d %B %Y') %></p>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
