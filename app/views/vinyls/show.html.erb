@@ -29,7 +29,7 @@
               id="booking-form-div"
               data-bookings="<%= @bookings_dates.to_json %>">
         Book</button>
-      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking %>
+      <%= render 'shared/modal_booking', vinyl: @vinyl, booking: @booking  %>
     </div>
   </div>
   <div class="row m-1 mt-5 mb-4">
@@ -45,8 +45,7 @@
     </div>
     <div class="col-12 col-lg-5 my-auto">
       <div class="youtube-player float-right">
-        <iframe display="block" title="YouTube Player" width="100%" height="100%" src="https://www.youtube.com/embed?listType=playlist&list=PLycVTiaj8OI-kwvNjgvvopMJt__x-y5mD" frameborder="0" class="mt-2 mb-2"></iframe>
-      </div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/oolpPmuK2I8?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      </div>
     </div>
   </div>
   <div class="row m-1 mt-3">
@@ -68,7 +67,7 @@
         <h4>Last Review</h4>
         <div class="review">
           <p><strong>Iggy Pop</strong>: <repeat n='4'></repeat>Nice Vinyl</p>
-          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">See all Reviews</button>
+          <button class="btn btn-light btn-review" data-toggle="modal" data-target="#allReviewsModal" data-whatever="@mdo">Post & Read Reviews </button>
           <%= render 'shared/modal_reviews' %>
           <!-- <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Leave a review</button> -->
         </div>
