@@ -1,29 +1,34 @@
 <div id='booking-page'>
   <div class="sidenav">
     <div class="side-nav-container">
-      <h6 id='my_vinyls' class='tab'>My Vinyls</h6>
-      <h6 id='my_bookings' class='tab'>My Orders</h6>
+      <h5 id='my_vinyls' class='tab'>My Collection</h5>
+      <h5 id='my_bookings' class='tab'>My Bookings</h5>
       <br>
       <h6> <%= link_to '+ Post New Vinyl',  new_vinyl_path, class: "link-without-style" %></h6>
     </div>
   </div>
 
   <div class='container'>
-    <div class="cards-index my-vinyls">
+    <div class="my-vinyls">
+      <h2>My Collection</h2>
+      <div class="cards-index">
       <% @vinyls.each do |vinyl| %>
-          <%= link_to vinyl_path(vinyl), class: "link-without-style" do  %>
-            <%= render "shared/record_image", vinyl: vinyl%>
-            <%= link_to "+", vinyl_path(vinyl), method: :delete, data: { confirm: "Sure ?" }, class: "card-category-remove link-without-style"  %>
-          <% end %>
+        <%= render "shared/record_image_booking", vinyl: vinyl %>
       <% end %>
+      </div>
     </div>
 
-    <div class="cards-index my-bookings d-none">
+    <div class="my-bookings d-none">
+      <h2>My Bookings</h2>
+      <div class="cards-index">
       <% @bookings.each do |booking| %>
         <%= link_to vinyl_path(booking.vinyl), class: "link-without-style" do  %>
           <%= render "shared/record_image", vinyl: booking.vinyl%>
+          <h6 class="text-center">Booked periods</h6>
+          <h6 class="text-center"><%= booking.start_rent.strftime('%d %B %Y') %> - <%=  booking.end_rent.strftime('%d %B %Y') %></h6>
         <% end %>
       <% end %>
+      </div>
     </div>
   </div>
 </div>
