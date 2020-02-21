@@ -1,4 +1,4 @@
-<div class="container search d-flex align-items-end">
+<div class="container search d-flex align-items-center">
     <%= simple_form_for :search, method: "get", url: vinyls_path do |f| %>
         <div class="d-flex justify-content-center">
           <%= f.input :query, as: :string, required: false, input_html: {class: "border-dark shadow-lg rounded-pill py-4"}, placeholder: "Looking for something?", label: false %>
