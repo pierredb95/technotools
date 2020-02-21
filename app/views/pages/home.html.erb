@@ -11,15 +11,17 @@
   <h2>Break the music barrier</h2>
   <h4>Lend and share your records with the vinyl enthusiasts around you!</h4>
   <div class="d-flex mb-5 justify-content-around">
-    <%= link_to vinyl_path(Vinyl.first), class: "link-without-style" do  %>
+    <%= link_to vinyl_path(Vinyl.first), class: "link-without-style vinyl1" do  %>
       <%= render "shared/record_image", vinyl: Vinyl.first %>
-      <iframe id ="y1"width="1000" height="1000" src="https://www.youtube.com/embed/oolpPmuK2I8?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe id = "youtube1" width="0" height="0" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% end %>
-    <%= link_to vinyl_path(Vinyl.second), class: "link-without-style" do  %>
+    <%= link_to vinyl_path(Vinyl.second), class: "link-without-style vinyl2" do  %>
       <%= render "shared/record_image", vinyl: Vinyl.second %>
+      <iframe id = "youtube2" width="0" height="0" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% end %>
-    <%= link_to vinyl_path(Vinyl.third), class: "link-without-style" do  %>
+    <%= link_to vinyl_path(Vinyl.third), class: "link-without-style vinyl3" do  %>
       <%= render "shared/record_image", vinyl: Vinyl.third %>
+      <iframe id = "youtube3" width="0" height="0" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <% end %>
   </div>
 </div>
