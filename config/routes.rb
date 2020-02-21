@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :vinyls do
     resources :bookings, except: [ :index, :show, :destroy, :edit, :update]
     resources :reviews, only: [ :new, :create]
+    resources :tracks, only: [ :new, :create]
   end
-  resources :bookings, only: [ :index, :show, :destroy, :edit, :update] do
+  resources :bookings, only: [ :index, :destroy, :edit, :update] do
     resources :reviews, only: [ :new, :create, :edit, :update]
   end
 

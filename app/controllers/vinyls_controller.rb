@@ -58,6 +58,7 @@ class VinylsController < ApplicationController
   def show
     @vinyl = Vinyl.find(params[:id])
     @review = Review.new
+    @track = Track.new
     authorize @vinyl
     @booking = Booking.new
     @bookings       = Booking.where(vinyl_id: @vinyl.id)
